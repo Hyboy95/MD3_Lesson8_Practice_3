@@ -31,7 +31,9 @@ create table Mark(
     subID int not null unique,
     studentID int not null unique,
     mark float default 0 check (mark between 0 and 100),
-    examtimes tinyint default 1
+    examtimes tinyint default 1,
+    foreign key (subID) references Subject(subID),
+    foreign key (studentID) references Student(studentID)
 );
 
 insert into Mark (subID, studentID, mark) value (2,3,-99);
